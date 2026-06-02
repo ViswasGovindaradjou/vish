@@ -1,3 +1,3 @@
-# Vish
+# python training
 
-Welcome to the Vish repository!
+
