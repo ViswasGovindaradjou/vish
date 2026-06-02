@@ -286,6 +286,8 @@ if is_circular_prime(n):
 else:
     print("Not Circular Prime")
 
+
+
 import os
 os.environ['KAGGLE_USERNAME'] = 'VISH'
 os.environ['KAGGLE_KEY']='KGAT_77512d142a19dc2744801fd2f635a0ea'
@@ -322,3 +324,182 @@ df.isnull().sum()
 df["Age"].fillna(df["Age"].median(),inplace=True)
 print(df[["Age"]].head(10))
 print(df[["Age"]].isnull().sum())
+
+
+
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+    def total(self):
+        return sum(self.marks)
+
+    def average(self):
+        return sum(self.marks) / len(self.marks)
+
+    def highest_mark(self):
+        return max(self.marks)
+
+    def status(self):
+        return "Pass" if all(mark >= 35 for mark in self.marks) else "Fail"
+
+
+s = Student("Ravi", [78, 45, 92, 30, 67])
+
+print("Total:", s.total())
+print("Average:", s.average())
+print("Highest Mark:", s.highest_mark())
+print("Status:", s.status())
+
+class Employee:
+    def __init__(self, name, scores):
+        self.name = name
+        self.scores = scores
+
+    def best_score(self):
+        return max(self.scores)
+
+    def average_score(self):
+        return sum(self.scores) / len(self.scores)
+
+    def months_above_80(self):
+        return len([x for x in self.scores if x > 80])
+
+
+e = Employee("Priya", [75, 82, 90, 65, 88, 70])
+
+print("Best Score:", e.best_score())
+print("Average Score:", round(e.average_score(), 1))
+print("Months Above 80:", e.months_above_80())
+
+class ParkingLot:
+    def __init__(self, vehicles):
+        self.vehicles = vehicles
+
+    def check_vehicle(self, number):
+        return number in self.vehicles
+
+    def duplicates(self):
+        dup = []
+        for v in self.vehicles:
+            if self.vehicles.count(v) > 1 and v not in dup:
+                dup.append(v)
+        return dup
+
+    def unique_count(self):
+        return len(set(self.vehicles))
+
+
+p = ParkingLot([101, 105, 110, 101, 115, 105])
+
+print("Duplicate Vehicles:", p.duplicates())
+print("Unique Vehicles:", p.unique_count())
+
+class Player:
+    def __init__(self, name, scores):
+        self.name = name
+        self.scores = scores
+
+    def highest_score(self):
+        return max(self.scores)
+
+    def lowest_score(self):
+        return min(self.scores)
+
+    def average_score(self):
+        return sum(self.scores) / len(self.scores)
+
+    def half_centuries(self):
+        return len([x for x in self.scores if x >= 50])
+
+
+p = Player("Virat", [45, 102, 78, 35, 61])
+
+print("Highest Score:", p.highest_score())
+print("Lowest Score:", p.lowest_score())
+print("Average Score:", round(p.average_score(), 1))
+print("Half Centuries:", p.half_centuries())
+
+class ShoppingCart:
+    def __init__(self, prices):
+        self.prices = prices
+
+    def total_bill(self):
+        return sum(self.prices)
+
+    def costliest_item(self):
+        return max(self.prices)
+
+    def discounted_bill(self):
+        total = self.total_bill()
+        if total > 5000:
+            total *= 0.85
+        return total
+
+
+cart = ShoppingCart([1200, 3500, 800, 1500])
+
+print("Total Bill:", cart.total_bill())
+print("Costliest Item:", cart.costliest_item())
+print("Discounted Bill:", cart.discounted_bill())
+
+class Patient:
+    def __init__(self, name, temps):
+        self.name = name
+        self.temps = temps
+
+    def highest_temp(self):
+        return max(self.temps)
+
+    def lowest_temp(self):
+        return min(self.temps)
+
+    def abnormal_count(self):
+        return len([t for t in self.temps if t > 100])
+
+
+p = Patient("Kumar", [98.4, 99.1, 101.2, 102.3, 98.9])
+
+print("Highest Temperature:", p.highest_temp())
+print("Lowest Temperature:", p.lowest_temp())
+print("Abnormal Readings:", p.abnormal_count())
+
+class MovieTicket:
+    def __init__(self, booked):
+        self.booked = booked
+
+    def is_booked(self, seat):
+        return seat in self.booked
+
+    def total_booked(self):
+        return len(self.booked)
+
+    def available_seats(self):
+        return [i for i in range(1, 21) if i not in self.booked]
+
+
+m = MovieTicket([1, 3, 5, 7, 10, 15])
+
+print("Total Booked Seats:", m.total_booked())
+print("Available Seats:", m.available_seats())
+
+class Student:
+    def __init__(self, attendance):
+        self.attendance = attendance
+
+    def highest_attendance(self):
+        return max(self.attendance)
+
+    def lowest_attendance(self):
+        return min(self.attendance)
+
+    def eligible_students(self):
+        return len([a for a in self.attendance if a >= 75])
+
+
+s = Student([85, 70, 92, 65, 78, 88])
+
+print("Highest Attendance:", s.highest_attendance())
+print("Lowest Attendance:", s.lowest_attendance())
+print("Eligible Students:", s.eligible_students())
